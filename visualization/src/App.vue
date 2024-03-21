@@ -11,11 +11,11 @@
     </div>
     <!-- center -->
     <div class="w-1/2 mr-5 flex flex-col">
-      <!-- 数据纵览 -->
+      <!-- 数据总览 -->
       <TotalData class="bg-opacity-50 bg-slate-800 p-3 flex-1" />
       <!-- 地图可视化 -->
       <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-4 flex-1" />
-    </div>
+    </div> 
     <!-- right -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex-col">
       <!-- 纵向柱状图 -->
@@ -24,7 +24,7 @@
       <Ringbar class="h-1/3 box-border pb-4" />
       <!-- 文档云图 -->
       <WordCloud />
-    </div>
+    </div> 
   </div>
 </template>
 
