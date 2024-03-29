@@ -1,11 +1,29 @@
+<script setup>
+import HorizontalBar from './components/HorizontalBar/index.vue';
+import MapChart from './components/MapChart/index.vue';
+import RadarBar from './components/RadarBar/index.vue';
+import Relation from './components/Relation/index.vue';
+import Ringbar from './components/RingBar/index.vue';
+import TotalData from './components/TotalData/index.vue';
+import VerticalBar from './components/VerticalBar/index.vue';
+import wordCloud from './components/WordCloud/index.vue';
+import { getVisualization } from './api/visualization.js';
+import { ref } from 'vue';
+
+const data = ref();
+const loadData = async () => await getVisualization();
+</script>
+
 <template>
-  <div class="bg-[url('assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden">
+  <div
+    class="bg-[url('assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden"
+  >
     <!-- left -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex-col">
       <!-- 横向柱状图 -->
-      <HorizontalBar class="h-1/3 box-border  pb-4" />
+      <HorizontalBar class="h-1/3 box-border pb-4" />
       <!-- 雷达图 -->
-      <RadarBar class="h-1/3 box-border  pb-4" />
+      <RadarBar class="h-1/3 box-border pb-4" />
       <!-- 数据传递关系图 -->
       <Relation />
     </div>
@@ -15,7 +33,7 @@
       <TotalData class="bg-opacity-50 bg-slate-800 p-3 flex-1" />
       <!-- 地图可视化 -->
       <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-4 flex-1" />
-    </div> 
+    </div>
     <!-- right -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex-col">
       <!-- 纵向柱状图 -->
@@ -24,31 +42,6 @@
       <Ringbar class="h-1/3 box-border pb-4" />
       <!-- 文档云图 -->
       <WordCloud />
-    </div> 
+    </div>
   </div>
 </template>
-
-<script>
-import HorizontalBar from './components/HorizontalBar/index.vue'
-import MapChart from './components/MapChart/index.vue'
-import RadarBar from './components/RadarBar/index.vue'
-import Relation from './components/Relation/index.vue'
-import Ringbar from './components/RingBar/index.vue'
-import TotalData from './components/TotalData/index.vue'
-import VerticalBar from './components/VerticalBar/index.vue'
-import wordCloud from './components/WordCloud/index.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HorizontalBar,
-    MapChart,
-    RadarBar,
-    Relation,
-    Ringbar,
-    TotalData,
-    VerticalBar,
-    wordCloud
-  }
-}
-</script>
