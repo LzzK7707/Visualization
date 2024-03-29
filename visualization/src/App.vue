@@ -6,7 +6,7 @@ import Relation from './components/Relation/index.vue';
 import Ringbar from './components/RingBar/index.vue';
 import TotalData from './components/TotalData/index.vue';
 import VerticalBar from './components/VerticalBar/index.vue';
-import wordCloud from './components/WordCloud/index.vue';
+import WordCloud from './components/WordCloud/index.vue';
 import { getVisualization } from './api/visualization.js';
 import { ref } from 'vue';
 

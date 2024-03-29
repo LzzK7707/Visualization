@@ -1,23 +1,27 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const service = axios.create({
-  baseURL: 'https://api.imooc-web.lgdsunday.club/api', timeout: 5000
-})
+  baseURL: 'https://api.imooc-web.lgdsunday.club/api',
+  timeout: 5000,
+});
 
-service.interceptors.request.use(config => {
-  config.headers.icode = 'input you icode'
-  return config
-}, error => {
-  return Promise.reject(error)
-})
+service.interceptors.request.use(
+  (config) => {
+    config.headers.icode = 'input you icode';
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
-service.interceptors.response.use(response => {
-  const {success, message, data} = response
+service.interceptors.response.use((response) => {
+  const { success, message, data } = response;
   if (success) {
-    return data
+    return data;
   } else {
-    return Promise.reject(new Error(message))
+    return Promise.reject(new Error(message));
   }
-})
+});
 
-export default service
+export default service;
