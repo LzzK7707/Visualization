@@ -1,17 +1,19 @@
 <script setup>
-import HorizontalBar from './components/HorizontalBar/index.vue';
-import MapChart from './components/MapChart/index.vue';
-import RadarBar from './components/RadarBar/index.vue';
-import Relation from './components/Relation/index.vue';
-import Ringbar from './components/RingBar/index.vue';
-import TotalData from './components/TotalData/index.vue';
-import VerticalBar from './components/VerticalBar/index.vue';
-import WordCloud from './components/WordCloud/index.vue';
-import { getVisualization } from './api/visualization.js';
-import { ref } from 'vue';
+import HorizontalBar from './components/HorizontalBar/index.vue'
+import MapChart from './components/MapChart/index.vue'
+import RadarBar from './components/RadarBar/index.vue'
+import Relation from './components/Relation/index.vue'
+import Ringbar from './components/RingBar/index.vue'
+import TotalData from './components/TotalData/index.vue'
+import VerticalBar from './components/VerticalBar/index.vue'
+import WordCloud from './components/WordCloud/index.vue'
+import { getVisualization } from './api/visualization.js'
+import { ref } from 'vue'
 
-const data = ref();
-const loadData = async () => await getVisualization();
+const data = ref()
+const loadData = async () => {
+  data.value = await getVisualization()
+}
 </script>
 
 <template>
