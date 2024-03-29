@@ -1,10 +1,6 @@
 <template>
-    <div>
-        数据展示图
-    </div>
+  <div>数据展示图</div>
 </template>
 
-<script>
-</script>
-
+<script></script>
 <style></style>
