@@ -5,23 +5,12 @@ const service = axios.create({
   timeout: 5000,
 });
 
+// 请求拦截器
 service.interceptors.request.use(
-  (config) => {
-    config.headers.icode = 'input you icode';
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
+  config => {
+    config.headers.icode = 'input';
+    return config
+  }
 );
 
-service.interceptors.response.use((response) => {
-  const { success, message, data } = response;
-  if (success) {
-    return data;
-  } else {
-    return Promise.reject(new Error(message));
-  }
-});
 
-export default service;
