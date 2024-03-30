@@ -18,7 +18,7 @@ onMounted(() => {
 // 2.构建option配置对象
 const renderChart = () => {
   const options = {
-    // X轴展示数据
+    // X轴展示数据          
     xAxis: {
       show: false, //不显示X
       type: 'value', //表示X轴作为数据展示
