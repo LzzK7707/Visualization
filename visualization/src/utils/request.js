@@ -23,6 +23,3 @@ service.interceptors.response.use((response) => {
 })
 
 export default service
-
-
-

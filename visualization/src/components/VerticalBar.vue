@@ -1,10 +1,7 @@
 <template>
-    <div>
-        纵向柱状图
-    </div>
+  <div>纵向柱状图</div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style></style>

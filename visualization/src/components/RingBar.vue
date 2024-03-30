@@ -1,10 +1,7 @@
 <template>
-    <div>
-        环形图
-    </div>
+  <div>环形图</div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style></style>
