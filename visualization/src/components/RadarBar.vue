@@ -1,10 +1,7 @@
 <template>
-    <div>
-        雷达图
-    </div>
+  <div>雷达图</div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style></style>

@@ -1,11 +1,7 @@
 <template>
-    <div>
-        数据展传递关系图
-    </div>
+  <div>数据展传递关系图</div>
 </template>
 
-<script>
-</script>
+<script></script>
 
-<style>
-</style>
+<style></style>

@@ -1,30 +1,30 @@
 <script setup>
-import HorizontalBar from './components/HorizontalBar.vue'
-import MapChart from './components/MapChart.vue'
-import RadarBar from './components/RadarBar.vue'
-import Relation from './components/Relation.vue'
-import Ringbar from './components/RingBar.vue'
-import TotalData from './components/TotalData.vue'
-import VerticalBar from './components/VerticalBar.vue'
-import WordCloud from './components/WordCloud.vue'
-import { getVisualization } from './api/visualization.js'
-import { ref } from 'vue'
+import HorizontalBar from './components/HorizontalBar.vue';
+import MapChart from './components/MapChart.vue';
+import RadarBar from './components/RadarBar.vue';
+import Relation from './components/Relation.vue';
+import Ringbar from './components/RingBar.vue';
+import TotalData from './components/TotalData.vue';
+import VerticalBar from './components/VerticalBar.vue';
+import WordCloud from './components/WordCloud.vue';
+import { getVisualization } from './api/visualization.js';
+import { ref } from 'vue';
 
-const data = ref(null)
+const data = ref(null);
 const loadData = async () => {
   try {
-    data.value = await getVisualization()
-    console.log(data.value)
+    data.value = await getVisualization();
+    console.log(data.value);
   } catch (error) {
-    console.error('Error loading data:', error)
+    console.error('Error loading data:', error);
   }
-}
+};
 
 setInterval(() => {
-  loadData()
-}, 3000)
+  loadData();
+}, 3000);
 
-loadData()
+loadData();
 </script>
 
 <template>
@@ -51,7 +51,7 @@ loadData()
     <!-- right -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex-col">
       <!-- 竖向柱状图 -->
-      <VerticalBar class="h-1/3 box-border pb-4" :data="data.serverData"/>
+      <VerticalBar class="h-1/3 box-border pb-4" :data="data.serverData" />
       <!-- 环形图 -->
       <Ringbar class="h-1/3 box-border pb-4" />
       <!-- 文档云图 -->
