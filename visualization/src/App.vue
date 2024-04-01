@@ -18,7 +18,6 @@ const loadData = async () => {
     console.error('Error loading data:', error);
   }
 };
-
 setInterval(() => {
   loadData();
 }, 3000);
@@ -38,7 +37,7 @@ loadData();
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData" />
       <!-- 数据传递关系图 -->
-      <Relation />
+      <Relation :data="data.relationData" />
     </div>
     <!-- center -->
     <div class="w-1/2 mr-5 flex flex-col">

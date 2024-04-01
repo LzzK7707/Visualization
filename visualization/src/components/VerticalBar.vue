@@ -5,8 +5,8 @@ import * as echarts from 'echarts';
 const props = defineProps({
   data: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 });
 // 1.初始化实例
 // 2.构建options配置对象
@@ -24,15 +24,15 @@ const renderChart = () => {
       type: 'category',
       data: props.data.servers.map((item) => item.name),
       axisLabel: {
-        color: '#9EB1C8',
-      },
+        color: '#9EB1C8'
+      }
     },
     yAxis: {
       type: 'value',
       show: false,
-      max: function(value) {
+      max: function (value) {
         return parseInt(value.max * 1.2);
-      },
+      }
     },
     grid: {
       top: 16,
@@ -40,7 +40,7 @@ const renderChart = () => {
       bottom: 26,
       left: -26,
       // 计算边距的时候包含标签
-      containLabel: true,
+      containLabel: true
     },
     series: [
       {
@@ -48,27 +48,27 @@ const renderChart = () => {
         type: 'bar',
         data: props.data.servers.map((item) => ({
           name: item.name,
-          value: item.value,
+          value: item.value
         })),
         showBackground: true,
         backgroundStyle: {
-          color: 'rgba(180, 180, 180, 0.2)',
+          color: 'rgba(180, 180, 180, 0.2)'
         },
         itemStyle: {
           color: '#5D98CE',
           borderRadius: 5,
           shadowColor: 'rgba(0,0,0,0.3)',
-          shadowBlur: 5,
+          shadowBlur: 5
         },
         barWidth: 12,
         label: {
           show: true,
           position: 'top',
           color: '#fff',
-          formatter: '{c}%',
-        },
-      },
-    ],
+          formatter: '{c}%'
+        }
+      }
+    ]
   };
   myChart.setOption(options);
 };
@@ -77,7 +77,7 @@ watch(
   () => props.data,
   () => {
     renderChart();
-  },
+  }
 );
 </script>
 

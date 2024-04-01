@@ -5,8 +5,8 @@ import * as echarts from 'echarts';
 const props = defineProps({
   data: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 });
 let myChart = null;
 const target = ref(null);
@@ -18,7 +18,7 @@ onMounted(() => {
 
 const getSeriesData = () => {
   const series = [];
-  props.data.abnormals.forEach((item, index) => {
+  props.data['abnormals'].forEach((item, index) => {
     // 上层
     series.push({
       name: item.name,
@@ -28,25 +28,25 @@ const getSeriesData = () => {
       radius: [73 - index * 15 + '%', 68 - index * 15 + '%'],
       center: ['55%', '55%'],
       label: {
-        show: false,
+        show: false
       },
       data: [
         {
           value: item.value,
-          name: item.name,
+          name: item.name
         },
         {
           value: 1000,
           itemStyle: {
             color: 'rgba(0,0,0,0)',
-            borderWidth: 0,
+            borderWidth: 0
           },
           tooltip: {
-            show: false,
+            show: false
           },
-          hoverAnimation: false,
-        },
-      ],
+          hoverAnimation: false
+        }
+      ]
     });
 
     // 底层
@@ -60,32 +60,32 @@ const getSeriesData = () => {
       radius: [73 - index * 15 + '%', 68 - index * 15 + '%'],
       center: ['55%', '55%'],
       label: {
-        show: false,
+        show: false
       },
       data: [
         {
           value: 7.5,
           itemStyle: {
             color: 'rgb(3,31,62)',
-            borderWidth: 0,
+            borderWidth: 0
           },
           tooltip: {
-            show: false,
+            show: false
           },
-          hoverAnimation: false,
+          hoverAnimation: false
         },
         {
           value: 2.5,
           itemStyle: {
             color: 'rgba(0,0,0,0)',
-            borderWidth: 0,
+            borderWidth: 0
           },
           tooltip: {
-            show: false,
+            show: false
           },
-          hoverAnimation: false,
-        },
-      ],
+          hoverAnimation: false
+        }
+      ]
     });
   });
 
@@ -108,14 +108,14 @@ const renderChart = () => {
       textStyle: {
         fontSize: 12,
         lineHeight: 5,
-        color: 'rgba(255,255,255,0.8)',
-      },
+        color: 'rgba(255,255,255,0.8)'
+      }
     },
     // 提示层
     tooltip: {
       show: true,
       trigger: 'item',
-      formatter: '{a}<br>{b}:{c}({d}%)',
+      formatter: '{a}<br>{b}:{c}({d}%)'
     },
     // Y
     yAxis: [
@@ -123,18 +123,18 @@ const renderChart = () => {
         type: 'category',
         inverse: true,
         axisLine: {
-          show: false,
-        },
-      },
+          show: false
+        }
+      }
     ],
     // X
     xAxis: [
       {
-        show: false,
-      },
+        show: false
+      }
     ],
     // 核心
-    series: getSeriesData(),
+    series: getSeriesData()
   };
   // 3.通过实例.setOptions(option)
   myChart.setOption(options);

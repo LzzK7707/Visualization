@@ -5,8 +5,8 @@ import * as echarts from 'echarts';
 const props = defineProps({
   data: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 });
 // 1.初始化实例
 let myChart = null;
@@ -24,7 +24,7 @@ const renderChart = () => {
       type: 'value', //表示X轴作为数据展示
       max: function (value) {
         return parseInt(value.max * 1.2);
-      },
+      }
     },
     // Y轴展示数据
     yAxis: {
@@ -33,7 +33,7 @@ const renderChart = () => {
       inverse: true,
       axisLine: { show: false }, //不展示线
       axisTick: { show: false }, //不展示刻度
-      axisLabel: { color: '#9eb1c8' },
+      axisLabel: { color: '#9eb1c8' }
     },
     // 图标绘制的位置 对应上下左右
     grid: {
@@ -41,7 +41,7 @@ const renderChart = () => {
       right: 0,
       bottom: 0,
       left: 0,
-      containLabel: true, //计算时包含标签
+      containLabel: true //计算时包含标签
     },
     // 核心配置
     series: [
@@ -50,26 +50,26 @@ const renderChart = () => {
         type: 'bar',
         data: props.data.regions.map((item) => ({
           name: item.name,
-          value: item.value,
+          value: item.value
         })),
         showBackground: true,
         backgroundStyle: {
-          color: 'rgba(180, 180, 180, 0.2)',
+          color: 'rgba(180, 180, 180, 0.2)'
         },
         itemStyle: {
           color: '#5D98CE',
           borderRadius: 5,
           shadowColor: 'rgba(0,0,0,0.3)',
-          shadowBlur: 5,
+          shadowBlur: 5
         },
         barWidth: 12,
         label: {
           show: true,
           position: 'right',
-          color: '#fff',
-        },
-      },
-    ],
+          color: '#fff'
+        }
+      }
+    ]
   };
   // 3.通过实例.setOptions(option)
   myChart.setOption(options);
