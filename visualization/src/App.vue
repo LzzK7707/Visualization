@@ -14,7 +14,6 @@ const data = ref(null);
 const loadData = async () => {
   try {
     data.value = await getVisualization();
-    console.log(data.value);
   } catch (error) {
     console.error('Error loading data:', error);
   }
@@ -37,7 +36,7 @@ loadData();
       <!-- 横向柱状图 -->
       <HorizontalBar class="h-1/3 box-border pb-4" :data="data.regionData" />
       <!-- 雷达图 -->
-      <RadarBar class="h-1/3 box-border pb-4" />
+      <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData" />
       <!-- 数据传递关系图 -->
       <Relation />
     </div>
@@ -53,7 +52,7 @@ loadData();
       <!-- 竖向柱状图 -->
       <VerticalBar class="h-1/3 box-border pb-4" :data="data.serverData" />
       <!-- 环形图 -->
-      <Ringbar class="h-1/3 box-border pb-4" />
+      <Ringbar class="h-1/3 box-border pb-4" :data="data.abnormalData" />
       <!-- 文档云图 -->
       <WordCloud />
     </div>

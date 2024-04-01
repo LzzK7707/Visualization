@@ -18,7 +18,7 @@ onMounted(() => {
 // 2.构建option配置对象
 const renderChart = () => {
   const options = {
-    // X轴展示数据          
+    // X轴展示数据
     xAxis: {
       show: false, //不显示X
       type: 'value', //表示X轴作为数据展示
@@ -46,6 +46,7 @@ const renderChart = () => {
     // 核心配置
     series: [
       {
+        // 柱形图
         type: 'bar',
         data: props.data.regions.map((item) => ({
           name: item.name,
