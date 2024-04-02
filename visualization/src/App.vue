@@ -37,7 +37,7 @@ loadData();
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" :data="data.riskData" />
       <!-- 数据传递关系图 -->
-      <Relation :data="data.relationData" />
+      <Relation class="h-1/3 " :data="data.relationData" />
     </div>
     <!-- center -->
     <div class="w-1/2 mr-5 flex flex-col">
@@ -53,7 +53,7 @@ loadData();
       <!-- 环形图 -->
       <Ringbar class="h-1/3 box-border pb-4" :data="data.abnormalData" />
       <!-- 文档云图 -->
-      <WordCloud />
+      <WordCloud class="h-1/3" />
     </div>
   </div>
 </template>

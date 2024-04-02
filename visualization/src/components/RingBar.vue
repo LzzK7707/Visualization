@@ -142,6 +142,7 @@ const renderChart = () => {
 
 watch(() => props.data, renderChart);
 </script>
+
 <template>
   <div>
     <div>【大区异常处理】</div>
