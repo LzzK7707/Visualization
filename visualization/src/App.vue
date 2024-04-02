@@ -20,6 +20,7 @@ const loadData = async () => {
 };
 setInterval(() => {
   loadData();
+  console.log(data.value)
 }, 3000);
 
 loadData();
@@ -53,7 +54,7 @@ loadData();
       <!-- 环形图 -->
       <Ringbar class="h-1/3 box-border pb-4" :data="data.abnormalData" />
       <!-- 文档云图 -->
-      <WordCloud class="h-1/3" />
+      <WordCloud class="h-1/3" :data="data.wordCloudData"/>
     </div>
   </div>
 </template>

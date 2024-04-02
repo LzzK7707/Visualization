@@ -39,7 +39,7 @@ const renderChart = () => {
           show: true,
           color: '#fff',
           fontSize: 10,
-          formatter: function(params) {
+          formatter: function (params) {
             return params.data.speed;
           }
         },
@@ -109,16 +109,19 @@ const renderChart = () => {
           curveness: 0.2
         },
         data: [
-          [{ coord: [0, 300] }, { coord: [50, 200] }],
-          [{ coord: [0, 100] }, { coord: [50, 200] }],
-          [{ coord: [50, 200] }, { coord: [100, 100] }],
-          [{ coord: [50, 200] }, { coord: [100, 300] }]
-        
+          /*  [{ coord: [0, 300] }, { coord: [50, 200] }],
+           [{ coord: [0, 100] }, { coord: [50, 200] }],
+           [{ coord: [50, 200] }, { coord: [100, 100] }],
+           [{ coord: [50, 200] }, { coord: [100, 300] }] */
+          { coords: [[0, 300], [50, 200]] },
+          { coords: [[0, 100], [50, 200]] },
+          { coords: [[50, 200], [100, 100]] },
+          { coords: [[50, 200], [100, 300]] }
         ]
       }
     ]
   };
-  
+
   myChart.setOption(options);
 };
 
@@ -132,6 +135,6 @@ watch(
 <template>
   <div>
     <div>【数据传递信息】</div>
-    <div ref="target" style="height:100%;width:100%;"></div>
+    <div ref="target" style="height: 100%; width: 100%"></div>
   </div>
 </template>
