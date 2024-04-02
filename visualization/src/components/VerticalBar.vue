@@ -60,6 +60,7 @@ const renderChart = () => {
           shadowColor: 'rgba(0,0,0,0.3)',
           shadowBlur: 5
         },
+        
         barWidth: 12,
         label: {
           show: true,

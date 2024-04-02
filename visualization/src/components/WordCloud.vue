@@ -27,6 +27,7 @@ const randomRGB = () => {
 };
 // 2
 const renderChart = () => {
+  /** @type EChartsOption */
   const options = {
     series: {
       type: 'wordCloud',
@@ -36,7 +37,8 @@ const renderChart = () => {
       layoutAnimation: true,
       textStyle: {
         color: randomRGB
-      }
+      },
+      
     }
   };
   myChart.setOption(options);
