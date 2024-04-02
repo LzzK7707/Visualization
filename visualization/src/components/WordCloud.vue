@@ -1,6 +1,6 @@
 <script setup>
 import * as echarts from 'echarts';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import 'echarts-wordcloud';
 
 const props = defineProps({
@@ -18,11 +18,12 @@ onMounted(() => {
   renderChart();
 });
 
+// TODO 无法随机显示颜色
 const randomRGB = () => {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
-  
+
   return `rbg(${r}, ${g}, ${b})`;
 };
 // 2
@@ -36,15 +37,24 @@ const renderChart = () => {
       gridSize: 0,
       layoutAnimation: true,
       textStyle: {
-        color: randomRGB
+        color: 'white' 
       },
-      
+      emphasis: {
+        textStyle: {
+          fontWeight: 'bold',
+          color: 'lightblue'
+        }
+      },
+      data: props.data.datas
     }
   };
   myChart.setOption(options);
 };
 
-
+watch(
+  () => props.data,
+  () => renderChart()
+);
 </script>
 <template>
   <div>
@@ -52,6 +62,5 @@ const renderChart = () => {
     <div ref="target" class="h-full w-full"></div>
   </div>
 </template>
-
 
 <style></style>
