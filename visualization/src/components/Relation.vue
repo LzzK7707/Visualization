@@ -39,7 +39,7 @@ const renderChart = () => {
           show: true,
           color: '#fff',
           fontSize: 10,
-          formatter: function(params) {
+          formatter: function (params) {
             return params.data.speed;
           }
         },
@@ -141,7 +141,7 @@ const renderChart = () => {
       }
     ]
   };
-  
+
   myChart.setOption(options);
 };
 
