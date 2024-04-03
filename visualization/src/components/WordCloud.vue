@@ -16,7 +16,7 @@ let myChart = null;
 onMounted(() => {
     myChart = echarts.init(target.value);
     renderChart();
-});
+}); //
 
 // TODO 无法随机显示颜色
 const randomRGB = () => {
