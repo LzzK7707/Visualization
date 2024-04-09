@@ -1,23 +1,23 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import * as echarts from 'echarts';
+import { onMounted, ref, watch } from 'vue'
+import * as echarts from 'echarts'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
-let myChart = null;
-const target = ref(null);
+})
+let myChart = null
+const target = ref(null)
 
 onMounted(() => {
-  myChart = echarts.init(target.value);
-  renderChart();
-});
+  myChart = echarts.init(target.value)
+  renderChart()
+})
 
 const getSeriesData = () => {
-  const series = [];
+  const series = []
   props.data['abnormals'].forEach((item, index) => {
     // 上层
     series.push({
@@ -47,7 +47,7 @@ const getSeriesData = () => {
           hoverAnimation: false
         }
       ]
-    });
+    })
 
     // 底层
     series.push({
@@ -86,11 +86,11 @@ const getSeriesData = () => {
           hoverAnimation: false
         }
       ]
-    });
-  });
+    })
+  })
 
-  return series;
-};
+  return series
+}
 // 2.构建 option 配置对象
 const renderChart = () => {
   const options = {
@@ -135,12 +135,12 @@ const renderChart = () => {
     ],
     // 核心
     series: getSeriesData()
-  };
+  }
   // 3.通过实例.setOptions(option)
-  myChart.setOption(options);
-};
+  myChart.setOption(options)
+}
 
-watch(() => props.data, renderChart);
+watch(() => props.data, renderChart)
 </script>
 
 <template>

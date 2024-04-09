@@ -1,66 +1,72 @@
+<template>
+  <div>
+    <div>【关键词条】</div>
+    <div ref="target" class="w-full h-full"></div>
+  </div>
+</template>
+
 <script setup>
-import * as echarts from 'echarts';
-import { onMounted, ref, watch } from 'vue';
-import 'echarts-wordcloud';
+import * as echarts from 'echarts'
+import 'echarts-wordcloud'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
+})
 
-// 1
-const target = ref();
-let myChart = null;
+let myChart = null
+const target = ref(null)
+
 onMounted(() => {
-  myChart = echarts.init(target.value);
-  renderChart();
-}); //
+  myChart = echarts.init(target.value)
+  renderChart()
+})
 
-// TODO 无法随机显示颜色
-const randomRGB = () => {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
+const randomRgb = () => {
+  const r = Math.floor(Math.random() * 255)
+  const g = Math.floor(Math.random() * 255)
+  const b = Math.floor(Math.random() * 255)
+  return `rgb(${r},${g},${b})`
+}
 
-  return `rbg(${r}, ${g}, ${b})`;
-};
-// 2
 const renderChart = () => {
-  /** @type EChartsOption */
   const options = {
-    series: {
-      type: 'wordCloud',
-      sizeRange: [8, 46],
-      rotationRange: [0, 0],
-      gridSize: 0,
-      layoutAnimation: true,
-      textStyle: {
-        color: 'white'
-      },
-      emphasis: {
+    series: [
+      {
+        // 此配置需参考 echarts-wordcloud
+        type: 'wordCloud',
+        left: 'center',
+        top: 'center',
+        width: '85%',
+        height: '85%',
+        right: null,
+        bottom: null,
+        sizeRange: [8, 48],
+        rotationRange: [0, 0],
+        gridSize: 6,
+        layoutAnimation: true,
         textStyle: {
-          fontWeight: 'bold',
-          color: 'lightblue'
-        }
-      },
-      data: props.data.datas
-    }
-  };
-  myChart.setOption(options);
-};
+          color: randomRgb
+        },
+        emphasis: {
+          textStyle: {
+            fontWeight: 'bold',
+            color: '#000',
+            textShadowBlur: 1,
+            textShadowColor: 'blue'
+          }
+        },
+        data: props.data.datas
+      }
+    ]
+  }
+  myChart.setOption(options)
+}
 
-watch(
-  () => props.data,
-  () => renderChart()
-);
+watch(() => props.data, renderChart)
 </script>
-<template>
-  <div>
-    <div>文档云图</div>
-    <div ref="target" class="h-full w-full"></div>
-  </div>
-</template>
 
-<style></style>
+<style scoped lang="scss"></style>

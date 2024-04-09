@@ -9,7 +9,7 @@ const props = defineProps({
   }
 });
 // 1.初始化实例
-// 2.构建options配置对象
+// 2.构建options配置对象   pubi
 // 3.
 let myChart = null;
 const target = ref(null);
@@ -30,9 +30,7 @@ const renderChart = () => {
     yAxis: {
       type: 'value',
       show: false,
-      max: function (value) {
-        return parseInt(value.max * 1.2);
-      }
+      max: (value) => parseInt(value.max * 1.2)
     },
     grid: {
       top: 16,

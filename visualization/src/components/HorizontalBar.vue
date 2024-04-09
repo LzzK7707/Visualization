@@ -1,20 +1,20 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import * as echarts from 'echarts';
+import { onMounted, ref, watch } from 'vue'
+import * as echarts from 'echarts'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
+})
 // 1.初始化实例
-let myChart = null;
-const target = ref(null);
+let myChart = null
+const target = ref(null)
 onMounted(() => {
-  myChart = echarts.init(target.value);
-  renderChart();
-});
+  myChart = echarts.init(target.value)
+  renderChart()
+})
 // 2.构建option配置对象
 const renderChart = () => {
   const options = {
@@ -23,7 +23,7 @@ const renderChart = () => {
       show: false, //不显示X
       type: 'value', //表示X轴作为数据展示
       max: function (value) {
-        return parseInt(value.max * 1.2);
+        return parseInt(value.max * 1.2)
       }
     },
     // Y轴展示数据
@@ -70,15 +70,15 @@ const renderChart = () => {
         }
       }
     ]
-  };
+  }
   // 3.通过实例.setOptions(option)
-  myChart.setOption(options);
-};
+  myChart.setOption(options)
+}
 
 watch(
   () => props.data,
   () => renderChart()
-);
+)
 </script>
 
 <template>

@@ -1,21 +1,21 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import * as echarts from 'echarts';
+import { onMounted, ref, watch } from 'vue'
+import * as echarts from 'echarts'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
+})
 
 //初始化 echarts 实例
-let myChart = null;
-const target = ref(null);
+let myChart = null
+const target = ref(null)
 onMounted(() => {
-  myChart = echarts.init(target.value);
-  renderChart();
-});
+  myChart = echarts.init(target.value)
+  renderChart()
+})
 
 // 构建option配置对象
 const renderChart = () => {
@@ -40,7 +40,7 @@ const renderChart = () => {
           color: '#fff',
           fontSize: 10,
           formatter: function (params) {
-            return params.data.speed;
+            return params.data.speed
           }
         },
         label: {
@@ -58,7 +58,7 @@ const renderChart = () => {
               active: true,
               speed: `${item.speed}kb/s`,
               value: item.value
-            };
+            }
           } else {
             return {
               name: item.name,
@@ -75,7 +75,7 @@ const renderChart = () => {
               label: {
                 fontSize: '10'
               }
-            };
+            }
           }
         }),
         links: props.data.relations.map((item) => ({
@@ -140,16 +140,16 @@ const renderChart = () => {
         ]
       }
     ]
-  };
+  }
 
-  myChart.setOption(options);
-};
+  myChart.setOption(options)
+}
 
 //监听数据变化
 watch(
   () => props.data,
   () => renderChart()
-);
+)
 </script>
 
 <template>

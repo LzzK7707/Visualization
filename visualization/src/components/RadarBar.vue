@@ -1,20 +1,20 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import * as echarts from 'echarts';
+import { onMounted, ref, watch } from 'vue'
+import * as echarts from 'echarts'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
-let myChart = null;
-const target = ref(null);
+})
+let myChart = null
+const target = ref(null)
 
 onMounted(() => {
-  myChart = echarts.init(target.value);
-  renderChart();
-});
+  myChart = echarts.init(target.value)
+  renderChart()
+})
 
 const renderChart = () => {
   const options = {
@@ -96,11 +96,11 @@ const renderChart = () => {
         }
       ]
     }
-  };
+  }
   // 3.通过实例.setOptions(option)
-  myChart.setOption(options);
-};
-watch(() => props.data, renderChart);
+  myChart.setOption(options)
+}
+watch(() => props.data, renderChart)
 </script>
 <template>
   <div>

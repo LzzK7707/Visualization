@@ -1,31 +1,31 @@
 <script setup>
-import { CountUp } from 'countup.js';
-import { onMounted, ref } from 'vue';
+import { CountUp } from 'countup.js'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   data: {
     type: Object,
     required: true
   }
-});
+})
 
-const totalCountTarget = ref(null);
-const city1 = ref(null);
-const city2 = ref(null);
-const city3 = ref(null);
-const city4 = ref(null);
-const city5 = ref(null);
-const city6 = ref(null);
+const totalCountTarget = ref(null)
+const city1 = ref(null)
+const city2 = ref(null)
+const city3 = ref(null)
+const city4 = ref(null)
+const city5 = ref(null)
+const city6 = ref(null)
 
 onMounted(() => {
-  new CountUp(totalCountTarget.value, props.data.total).start();
-  new CountUp(city1.value, props.data.total).start();
-  new CountUp(city2.value, props.data.total).start();
-  new CountUp(city3.value, props.data.total).start();
-  new CountUp(city4.value, props.data.total).start();
-  new CountUp(city5.value, props.data.total).start();
-  new CountUp(city6.value, props.data.total).start();
-});
+  new CountUp(totalCountTarget.value, props.data.total).start()
+  new CountUp(city1.value, props.data.total).start()
+  new CountUp(city2.value, props.data.total).start()
+  new CountUp(city3.value, props.data.total).start()
+  new CountUp(city4.value, props.data.total).start()
+  new CountUp(city5.value, props.data.total).start()
+  new CountUp(city6.value, props.data.total).start()
+})
 </script>
 <template>
   <div>
